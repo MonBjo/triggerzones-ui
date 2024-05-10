@@ -13,5 +13,5 @@ a UI for the triggerzone resource to FiveM
     - [ ] Altitude (number, spinner?) 
     - [ ] Height (number, spinner?) 
 - [ ] Save button 
-- [ ] Abort
+- [ ] Abort button
 - [ ] Modal for errors/messages 
