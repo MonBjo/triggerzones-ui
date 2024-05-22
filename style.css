@@ -1,59 +1,247 @@
+:root {
+    --green: #13430F;
+    --red: #9B3029;
+    --blue: #253E4B;
+    --black: #0e0e0e;
+    --white: #fafafa;
+
+    --border-radius: 16px;
+}
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #fafafa;
-    font-size: 1.1rem;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: 'roboto', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-image: url(https://cdn.discordapp.com/attachments/212946122438606849/1238411724789645322/image.png?ex=664081cb&is=663f304b&hm=e061d74413ac28a518dcb1a6ccf6e00741cfb7d0c6ccb344425b19b07289f933&);
-    background-size:100%;
+    background-image: url(image.png);
+    background-size: 100%;
     background-position: center;
     height: 100vh;
     width: 100vw;
 }
 
+h1, h2 {
+    font-family: 'roboto slab', Tahoma, Geneva, Verdana, sans-seri;
+}
+
+.buttonRed {
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--red);
+    box-shadow: inset 0 0 0 1px var(--black);
+}
+.buttonGreen {
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--green);
+    box-shadow: inset 0 0 0 1px var(--black);
+}
+
+
+/*  === START OF TOP SECTION === */
+
 #topSection {
     position: absolute;
     top: 0;
-    left: 20%;
-    right: 20%;
-    background-color: #0a0a0a;
-    border-radius: 0 0 30px 30px;
-    padding: 0.5rem 1.5rem;
-}
-
-#rightSection {
-    position: absolute;
+    left: 0;
     right: 0;
-    top: 50%;
-    background-color: #0a0a0a;
-    border-radius: 30px 0 0 30px;
-    padding: 1.5rem 0.5rem;
+
+    display: flex;
+    justify-content: center;
 }
 
-#bottomSection {
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-    right: 20%;
-    background-color: #0a0a0a;
-    border-radius: 30px 30px 0 0;
+.topSectonWrapper {
+    position: relative;
+    background-color: var(--black);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
     padding: 0.5rem 1.5rem;
+}
+
+.colorSectionTitle {
+    position: absolute;
 }
 
 .colorForm  {
     display: grid;
+    margin-top: 8px;
+
     grid-template-columns: repeat(6, 1fr);
     gap: 0.5rem;
-    /* justify-items: center; */
+    justify-items: center;
 }
+
+.colorTitle {
+    width: max-content;
+    min-width: 100%;
+    text-align: right;
+}
+
+.colorLabel, .colorLabelLong {
+    text-align: center;
+}
+
 .colorInput {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /* align-items: center; */
+    gap: 0.25rem;
 }
 input[type="range"] {
     width: 100px;
+    margin-bottom: 8px;
+}
+
+
+/*  === START OF RIGHT SECTION === */
+
+#rightSection {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    
+    display: flex;
+    align-items: center;
+}
+#rightSection h1 {
+    margin: 0.5rem 1rem;
+}
+
+.rightSectionWrapper {
+    position: relative;
+    height: auto;
+    width: 10rem;
+
+    background-color: var(--black);
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+.tableWrapper {
+    max-height: 360px;
+    overflow: scroll;
+    margin: 0.5rem 0rem 0.5rem 1rem;
+}
+.table {
+    border-collapse: collapse; 
+}
+.table * {
+    font-weight: lighter;
+}
+.table th {
+    position: sticky;
+    top: 0;
+    background-color: var(--black);
+}
+.table td {
+    text-align: right;
+    padding: 0.4rem 0.3rem;
+}
+
+.action {
+    position: absolute;
+    bottom: 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 var(--border-radius);
+    background-color: var(--blue);
+    padding: 0.5rem;
+}
+.action > h2 {
+    padding: 0.5rem;
+    padding-top: 0;
+}
+.action > button {
+    padding: 0.25rem 0.75rem;
+}
+
+
+/*  === START OF BOTTOM SECTION === */
+
+#bottomSection {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+}
+.bottomSectionWrapper {
+    position: relative;
+    background-color: var(--black);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    padding: 0.5rem 1rem;
+}
+
+.mainInputs, .mainActions {
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mainInput > input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white);
+}
+.mainInput > input[type="number"] { 
+    width: 65px;
+    text-align: center;
+}
+.mainInput > input[type="number"] { 
+    border-radius: 0 8px 8px 0;
+}
+.mainActions > h1 {
+    color: var(--blue);
+}
+
+
+/*  === START OF ALERT SECTION === */
+
+#alert {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.alertWrapper {
+    position: relative;
+    background-color: var(--black);
+    border: 2px solid var(--red);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    min-width: 20rem;
+    max-width: 33%;
+    letter-spacing: 0.1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+.alertWrapper > * {
+    margin: 0.5rem;
+}
+.alertWrapper > button {
+    align-self: center;
+}
+
+
+
+.hidden, .hidden * {
+    display: none;
+    height: 0;
+    width: 0;
 }
