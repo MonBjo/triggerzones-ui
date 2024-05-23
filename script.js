@@ -24,34 +24,9 @@ let tempTableData = [];
 for(let i = 1; i <= 5; i++) {
     tempTableData.push(["xXx", "yYy"]);
 }
-// populateTable(tableElem, tempTableData);
+populateTable(tableElem, tempTableData);
 
 
-function populateTable(table, data) {
-    for(let i = 0; i < data.length; i++) {
-        
-        let newRow = table.insertRow(i+1);
-        
-        let cell0 = newRow.insertCell(0);    
-        let cell1 = newRow.insertCell(1);    
-        let cell2 = newRow.insertCell(2);
-        
-        cell0.innerHTML = i;
-        cell1.innerHTML = data[i][0];
-        cell2.innerHTML = data[i][1];
-    }
-}
-
-function clearTable(table) {
-    const tableLength = table.rows.length;
-
-    for(let i = 1; i < tableLength; i++) {
-        table.deleteRow(table.rows.length-1);
-    }
-}
-
-
-// Values
 altitudeElem.addEventListener("change", (event) => {
     console.log(altitudeElem.value);
 
@@ -62,7 +37,6 @@ heightElem.addEventListener("change", (event) => {
 });
 
 
-// Buttons
 alertButtonElem.addEventListener("click", (event) => {
     hideElem(alertElem);
 });
@@ -84,14 +58,18 @@ drawButtonElem.addEventListener("change", (event) => {
 
 saveButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("saving", event);
+    
     console.log("active color", getRGBAA(activeColorElems));
     console.log("inactive color", getRGBAA(inactiveColorElems));
     console.log("altitude", altitudeElem.value);
     console.log("height", heightElem.value);
     console.log("zoneName", zoneNameElem.value);
-    if(zoneNameElem.value.length == 0) {
+    console.log("points", tableElem.rows);
+
+    if(zoneNameElem.value.length == 0 || !zoneNameElem.value) {
         showModalMessage(alertElem, alertMessageElem, "Please write a zone name.");
+    } else {
+        // DO AN ACTUAL SAVE
     }
 });
 
@@ -141,4 +119,28 @@ function showElem(elem) {
 function showModalMessage(modalElem, messageElem, message) {
     messageElem.innerHTML = `<p>${message}</p>`;
     showElem(modalElem);
+}
+
+
+function populateTable(table, data) {
+    for(let i = 0; i < data.length; i++) {
+        
+        let newRow = table.insertRow(i+1);
+        
+        let cell0 = newRow.insertCell(0);    
+        let cell1 = newRow.insertCell(1);    
+        let cell2 = newRow.insertCell(2);
+        
+        cell0.innerHTML = i;
+        cell1.innerHTML = data[i][0];
+        cell2.innerHTML = data[i][1];
+    }
+}
+
+function clearTable(table) {
+    const tableLength = table.rows.length;
+
+    for(let i = 1; i < tableLength; i++) {
+        table.deleteRow(table.rows.length-1);
+    }
 }
