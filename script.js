@@ -3,9 +3,11 @@
 let tableElem = document.getElementById("table");
 
 let mainFormElem = document.getElementById("mainForm");
+let zoneNameElem = document.getElementById("zoneName");
 let altitudeElem = document.getElementById("altitude");
 let heightElem = document.getElementById("height");
 let cancleButtonElem = document.getElementById("cancle");
+let saveButtonElem = document.getElementById("save");
 
 let colorFormElem = document.getElementById("colorForm");
 let activeColorElems = document.getElementsByClassName("activeZoneColor");
@@ -19,22 +21,28 @@ let alertButtonElem = document.getElementById("alertButton");
 
 // debug info
 console.log(tableElem);
-console.log(mainFormElem);
+let tempTableData = [];
 
-// console.log(colorFormElem);
-// console.log(activeColorElems);
-// console.log(inactiveColorElems);
+for(let i = 1; i <= 20; i++) {
+    tempTableData.push(["xXx", "yYy"]);
+}
+console.log(tempTableData);
 
-// console.log(alertElem);
-// console.log(alertMessageElem);
-// console.log(alertButtonElem);
+console.log(tableElem.innerHTML);
+for(let i = 0; i < tempTableData.length; i++) {
+    console.log(i);
+    let newRow = tableElem.insertRow(i+1);
 
-mainFormElem.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("form was submitted");
-    console.log(event);
-});
+    let cell0 = newRow.insertCell(0);    
+    let cell1 = newRow.insertCell(1);    
+    let cell2 = newRow.insertCell(2);
 
+    cell0.innerHTML = i;
+    cell1.innerHTML = tempTableData[i][0];
+    cell2.innerHTML = tempTableData[i][1];
+}
+
+// Values
 altitudeElem.addEventListener("change", (event) => {
     console.log(altitudeElem.value);
 });
@@ -43,12 +51,27 @@ heightElem.addEventListener("change", (event) => {
     console.log(heightElem.value);
 });
 
+// Buttons
 alertButtonElem.addEventListener("click", (event) => {
     hideElem(alertElem);
 });
 
 cancleButtonElem.addEventListener("click", (event) => {
+    event.preventDefault();
     console.log("byebye");
+});
+
+saveButtonElem.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("saving", event);
+    console.log("active color", getRGBAA(activeColorElems));
+    console.log("inactive color", getRGBAA(inactiveColorElems));
+    console.log("altitude", altitudeElem.value);
+    console.log("height", heightElem.value);
+    console.log("zoneName", zoneNameElem.value);
+    if(zoneNameElem.value.length == 0) {
+        showModalMessage(alertElem, alertMessageElem, "Please write a zone name.");
+    }
 });
 
 
