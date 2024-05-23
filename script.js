@@ -7,14 +7,12 @@ let zoneNameElem = document.getElementById("zoneName");
 let drawButtonElem = document.getElementById("drawButton");
 let altitudeElem = document.getElementById("altitude");
 let heightElem = document.getElementById("height");
-let cancleButtonElem = document.getElementById("cancle");
+let cancelButtonElem = document.getElementById("cancel");
 let saveButtonElem = document.getElementById("save");
 
 let colorFormElem = document.getElementById("colorForm");
 let activeColorElems = document.getElementsByClassName("activeZoneColor");
 let inactiveColorElems = document.getElementsByClassName("inactiveZoneColor");
-let activeRGBAA = getRGBAA(activeColorElems);
-let inactiveRGBAA = getRGBAA(inactiveColorElems);
 
 let alertElem = document.getElementById("alert");
 let alertMessageElem = document.getElementById("alertMessage");
@@ -23,41 +21,53 @@ let alertButtonElem = document.getElementById("alertButton");
 // debug info
 console.log(tableElem);
 let tempTableData = [];
-
-for(let i = 1; i <= 20; i++) {
+for(let i = 1; i <= 5; i++) {
     tempTableData.push(["xXx", "yYy"]);
 }
-console.log(tempTableData);
+// populateTable(tableElem, tempTableData);
 
-console.log(tableElem.innerHTML);
-for(let i = 0; i < tempTableData.length; i++) {
-    console.log(i);
-    let newRow = tableElem.insertRow(i+1);
 
-    let cell0 = newRow.insertCell(0);    
-    let cell1 = newRow.insertCell(1);    
-    let cell2 = newRow.insertCell(2);
-
-    cell0.innerHTML = i;
-    cell1.innerHTML = tempTableData[i][0];
-    cell2.innerHTML = tempTableData[i][1];
+function populateTable(table, data) {
+    for(let i = 0; i < data.length; i++) {
+        
+        let newRow = table.insertRow(i+1);
+        
+        let cell0 = newRow.insertCell(0);    
+        let cell1 = newRow.insertCell(1);    
+        let cell2 = newRow.insertCell(2);
+        
+        cell0.innerHTML = i;
+        cell1.innerHTML = data[i][0];
+        cell2.innerHTML = data[i][1];
+    }
 }
+
+function clearTable(table) {
+    const tableLength = table.rows.length;
+
+    for(let i = 1; i < tableLength; i++) {
+        table.deleteRow(table.rows.length-1);
+    }
+}
+
 
 // Values
 altitudeElem.addEventListener("change", (event) => {
     console.log(altitudeElem.value);
+
 });
 
 heightElem.addEventListener("change", (event) => {
     console.log(heightElem.value);
 });
 
+
 // Buttons
 alertButtonElem.addEventListener("click", (event) => {
     hideElem(alertElem);
 });
 
-cancleButtonElem.addEventListener("click", (event) => {
+cancelButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
     console.log("byebye");
 });
