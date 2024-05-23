@@ -131,6 +131,7 @@ input[type="range"] {
     border-radius: var(--border-radius) 0 0 var(--border-radius);
 }
 .tableWrapper {
+    min-height: 200px;
     max-height: 350px;
     overflow: scroll;
     margin: 0.5rem 0rem 0.5rem 1rem;
@@ -138,6 +139,7 @@ input[type="range"] {
 .table {
     border-collapse: collapse;
     margin-bottom: 5rem;
+    min-width: 6rem;
 }
 .table * {
     font-weight: lighter;
