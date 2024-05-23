@@ -21,82 +21,6 @@
                         <th>X</th>
                         <th>Y</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                    <tr>
-                        <td>10</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>xxx</td>
-                        <td>yyy</td>
-                    </tr>
                 </table>
             </div>
             
@@ -183,25 +107,26 @@
                     
                     <section class="mainInput">
                         <label for="altitude">Altitute:</label>
-                        <input type="number" min="44" max="112" id="altitude" name="altitude" />
+                        <input type="number" min="44" max="112" id="altitude" name="altitude" value="55" />
                     </section>
                     
                     <section class="mainInput">
                         <label for="height">Height:</label>
-                        <input type="number" min="0" max="3" id="height" name="height" />
+                        <input type="number" min="0" max="3" id="height" name="height" value="2" />
                     </section>
                 </section>
 
                 <section class="mainActions">
-                    <button id="cancle" class="buttonRed">Cancle</button>
+                    <label for="draw" class="drawButton"> Draw <input type="checkbox" id="draw" name="draw"/> </label>
                     <h1>TriggerZone</h1>
-                    <input type="submit" id="submit" class="buttonGreen" value="Save" />
+                    <button id="cancle" class="buttonRed">Cancle</button>
+                    <button id="save" class="buttonGreen">Save</button>
                 </section>
             </form>
         </div>
     </section>
 
-    <section id="alert" class="hidden">
+    <section id="alert" class="alertBackground hidden">
         <div class="alertWrapper">
             <div id="alertMessage">
                 <p>Oopsie Daisies!</p>
