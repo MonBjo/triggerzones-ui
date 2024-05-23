@@ -224,7 +224,6 @@ input[type="range"] {
     height: 90%;
     width: 2rem;
     margin: 2px;
-    background-color: var(--blue);
     border-radius: 8px;
     border: none;
     font-size: 2rem;

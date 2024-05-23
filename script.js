@@ -4,6 +4,7 @@ let tableElem = document.getElementById("table");
 
 let mainFormElem = document.getElementById("mainForm");
 let zoneNameElem = document.getElementById("zoneName");
+let drawButtonElem = document.getElementById("drawButton");
 let altitudeElem = document.getElementById("altitude");
 let heightElem = document.getElementById("height");
 let cancleButtonElem = document.getElementById("cancle");
@@ -59,6 +60,16 @@ alertButtonElem.addEventListener("click", (event) => {
 cancleButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
     console.log("byebye");
+});
+
+drawButtonElem.addEventListener("change", (event) => {
+    if(drawButtonElem.firstElementChild.checked) {
+        drawButtonElem.style.backgroundColor = "var(--green)";
+    } else if (!drawButtonElem.firstElementChild.checked) {
+        drawButtonElem.style.backgroundColor = "var(--blue)";
+    } else {
+        console.log("what the heck is going on with the [drawButton] checkbox?");
+    }
 });
 
 saveButtonElem.addEventListener("click", (event) => {
