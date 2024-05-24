@@ -15,7 +15,8 @@
 .rightSectionWrapper {
     position: relative;
     height: auto;
-    width: 10rem;
+    min-width: 10rem;
+    max-width: 20rem;
 
     background-color: var(--black);
     border-radius: var(--border-radius) 0 0 var(--border-radius);
@@ -24,12 +25,12 @@
     min-height: 200px;
     max-height: 350px;
     overflow: scroll;
-    margin: 0.5rem 0rem 0.5rem 1rem;
+    margin: 0.5rem 0rem 0.5rem 0rem;
 }
 .table {
     border-collapse: collapse;
     margin-bottom: 5rem;
-    min-width: 6rem;
+    width: 100%;
 }
 .table * {
     font-weight: lighter;
@@ -43,6 +44,13 @@
     text-align: right;
     padding: 0.4rem 0.3rem;
 }
+.table tr > :last-child {
+    padding-right: 2rem;
+}
+
+.tableRow:hover, .tableRowClicked {
+    background-color: var(--blue);
+}
 
 .action {
     position: absolute;
@@ -50,6 +58,7 @@
     border-radius: var(--border-radius) var(--border-radius) 0 var(--border-radius);
     background-color: var(--blue);
     padding: 0.5rem;
+    width: 100%;
 }
 .action > h2 {
     padding: 0.5rem;
