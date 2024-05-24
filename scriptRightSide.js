@@ -1,6 +1,8 @@
+let rightSectionElem = document.getElementById("rightSection");
 let tableElem = document.getElementById("table");
 let viewButtonElem = document.getElementById("viewButton");
 let deleteButtonElem = document.getElementById("deleteButton");
+let toggleTableButtonElem = document.getElementById("toggleTableButton");
 
 let tableRowElems = [];
 
@@ -27,11 +29,23 @@ function createEventListeners(arrayOfElems, eventTrigger, className) {
 viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
     let activeRow = getActiveRow();
-    console.log(activeRow);
 });
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
     let activeRow = getActiveRow();
+});
+toggleTableButtonElem.addEventListener("click", (event) => {
+    console.log("toggleTableButton"); 
+    if(!rightSectionElem.classList.contains("hideRightSection")) {
+        toggleTableButtonElem.style.transform = 'translateX(-20rem) rotateZ(180deg)';
+        rightSectionElem.classList.add("hideRightSection");
+
+    } else if(rightSectionElem.classList.contains("hideRightSection")) {
+        toggleTableButtonElem.style.transform = 'translateX(0rem) rotateZ(0deg)';
+        rightSectionElem.classList.remove("hideRightSection");
+    
+    }
+    
 });
 
 

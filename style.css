@@ -39,6 +39,10 @@ h1, h2 {
     padding: 0.5rem 1.5rem;
     background-color: var(--green);
 }
+.buttonBlue {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--blue);
+}
 .smallButtonRed {
     padding: 0.25rem 0.75rem;
     background-color: var(--red);
@@ -46,6 +50,10 @@ h1, h2 {
 .smallButtonGreen {
     padding: 0.25rem 0.75rem;
     background-color: var(--green);
+}
+.smallButtonBlue {
+    padding: 0.25rem 0.75rem;
+    background-color: var(--blue);
 }
 .button {
     border: none;
