@@ -1,21 +1,23 @@
 # triggerzones-ui
+
 a UI for the triggerzone resource to FiveM
 
 ## Specification
 
- -  List of all points with xy-coordinates. 
+ -  List of all points with xy-coordinates and index. 
     -  Button to remove a point after it has been selected. 
+    - Button to view a point after it has been selected
 -  Input data: 
     -  Color, Two groups made with sliders and realtime preview of the color in game.
         -  Active zone of 5 values: R, G, B, A(lines) and A(walls). 
         -  Inactive zone of 5 values: R, G, B, A(lines) and A(walls). 
     -  Area name  
-    -  Altitude (number, spinner?) 
-    -  Height (number, spinner?) 
+    -  Altitude 
+    -  Height 
+    -  Drawing mode
+    -  Event mode
 -  Save button 
--  Abort button
--  Toggle Drawing mode
--  Toggle Event mode
+-  Cancle button
 -  Modal for errors/messages 
 
 ## How to use
@@ -55,6 +57,65 @@ let inactiveColor = getRGBAA(inactiveColorElems);
 
 ---
 
+### `getSingleValue(element)`
+
+Input:   
+- `element`, an input with type `text` or `number`.
+
+Output:
+- a `string` or `number` depending on the input.
+
+Used to get a single value from an input element. Nothing more. Nothing less.
+
+Example:
+```js
+let saveButtonElem = document.getElementById("save");
+
+saveButtonElem.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    var altitude = getSingleValue(altitudeElem);
+    var height = getSingleValue(heightElem);
+    var zoneName = getSingleValue(zoneNameElem);
+});
+```
+
+---
+
+### `isDrawingOn()`
+
+Input:    
+- none
+
+Output:
+- `boolian`
+
+Use this to get a boolian telling if "Drawing" is checked or not.
+
+Example:
+```js
+let drawing = isDrawingOn();
+```
+
+---
+
+### `isEventOn()`
+
+Input:    
+- none
+
+Output:
+- `boolian`
+
+Use this to get a boolian telling if "Event" is checked or not.
+
+Example:
+```js
+let event = isEventOn();
+```
+
+---
+
 ### `populateTable(table, data)`
 
 Input: 
@@ -62,7 +123,7 @@ Input:
 - `data`, an array with arrays of data to fill the table.
 
 Output:   
-none
+- none
 
 This function clears the table and adds new data to it with automatic numbering based on index. In case you want to only clear the data, use `clearTable(table)`.
 
@@ -88,7 +149,7 @@ Input:
 - `table`, the table element to be cleared.
 
 Output:   
-none.
+- none
 
 This function simply clears the table, leaving the header-row intact. Simple as that.
 
@@ -101,41 +162,31 @@ clearTable(tableElem);
 
 ---
 
-### `viewPoint()`
+### `getIndexOfActiveRow()`
 
-Input: 
-none
+Input:   
+- none
 
-Output:
-- something
+Output
+- `index` of the row.
 
-A comment about this function.
+Use this function to get the current selected row in the table. They are already used inside two event listeners in the file `scriptRightSide.js` to view or delete the point.
 
-Example
+Example:
 ```js
-//WIP
+let viewButtonElem = document.getElementById("viewButton");
+let deleteButtonElem = document.getElementById("deleteButton");
+
+viewButtonElem.addEventListener("click", (event) => {
+    console.log("viewButton");
+    let activeRowIndex = getIndexOfActiveRow();
+});
+
+deleteButtonElem.addEventListener("click", (event) => {
+    console.log("deleteButton");
+    let activeRowIndex = getIndexOfActiveRow();
+});
 ```
-
----
-
-### `deletePoint()`
-
-Input: 
-none
-
-Output:
-- something
-
-A comment about this function.
-
-Example
-```js
-//WIP
-```
-
----
-
-
 
 ---
 
@@ -147,7 +198,7 @@ Input:
 - `message`, the message.
 
 Output:  
-none
+- none
 
 The only modal (for now) is `alertElem` and it contains the `alertMessageElem`. Also, this function is used in some other functions automagicly. 
 
