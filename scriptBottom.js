@@ -9,7 +9,6 @@ let cancelButtonElem = document.getElementById("cancel");
 let saveButtonElem = document.getElementById("save");
 
 
-
 altitudeElem.addEventListener("change", (event) => {
     console.log(altitudeElem.value);
 
@@ -32,24 +31,35 @@ eventButtonElem.addEventListener("change", (event) => {
 
 cancelButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("byebye");
+    
+    // FiveM specific
+    fetch(`https://${GetParentResourceName()}/cancel`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            name: 'not-important'
+        })
+    }).then(resp => resp.json()).then(resp => console.log(resp));
 });
 
 saveButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
-    
-    console.log("=== START OF SAVED DATA ===");
-    console.log("active color", getRGBAA(activeColorElems));
-    console.log("inactive color", getRGBAA(inactiveColorElems));
-    console.log("altitude", getSingleValue(altitudeElem));
-    console.log("height", getSingleValue(heightElem));
-    console.log("zoneName", getSingleValue(zoneNameElem));
-    console.log("=== END OF SAVED DATA ===");
 
     if(zoneNameElem.value.length == 0 || !zoneNameElem.value) {
         showModalMessage(alertElem, alertMessageElem, "Please write a zone name.");
     } else {
-        // DO AN ACTUAL SAVE
+        // FiveM specific
+        fetch(`https://${GetParentResourceName()}/save`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+            label: labelGoesHereOrWhatever
+        })
+    }).then(resp => resp.json()).then(resp => console.log(resp));
     }
 });
 
