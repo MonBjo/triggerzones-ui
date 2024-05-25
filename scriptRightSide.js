@@ -28,12 +28,12 @@ function createEventListeners(arrayOfElems, eventTrigger, className) {
 
 viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
-    let activeRow = getActiveRow();
+    let activeRowIndex = getIndexOfActiveRow();
 });
 
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
-    let activeRow = getActiveRow();
+    let activeRowIndex = getIndexOfActiveRow();
 });
 
 toggleTableButtonElem.addEventListener("click", (event) => {
@@ -50,15 +50,14 @@ toggleTableButtonElem.addEventListener("click", (event) => {
 });
 
 
-function getActiveRow() {
+function getIndexOfActiveRow() {
     let activeRow = document.getElementsByClassName("tableRowClicked");
     if(activeRow[0]) {
-        return activeRow;
+        return +activeRow[0].cells[0].innerHTML;
     } else {
         showModalMessage(alertElem, alertMessageElem, "You need to select a row before proceeding with that action.")
     }
 }
-
         
 function populateTable(table, data) {
     clearTable(table);
