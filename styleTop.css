@@ -44,8 +44,12 @@
     /* align-items: center; */
     gap: 0.25rem;
 }
-input[type="range"] {
+.colorInput > input[type="range"] {
     width: 100px;
     margin-bottom: 8px;
+}
+.colorInput > p {
+    width: 2rem;
+    text-align: right;
 }
 

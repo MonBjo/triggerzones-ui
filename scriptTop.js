@@ -2,6 +2,22 @@ let colorFormElem = document.getElementById("colorForm");
 let activeColorElems = document.getElementsByClassName("activeZoneColor");
 let inactiveColorElems = document.getElementsByClassName("inactiveZoneColor");
 
+for(let i = 0; i < activeColorElems.length; i++) {
+    activeColorElems[i].nextElementSibling.innerHTML = activeColorElems[i].value;
+
+    activeColorElems[i].addEventListener("mousemove", (event) => {
+        activeColorElems[i].nextElementSibling.innerHTML = activeColorElems[i].value;
+    });
+}
+
+for(let i = 0; i < inactiveColorElems.length; i++) {
+    inactiveColorElems[i].nextElementSibling.innerHTML = inactiveColorElems[i].value;
+        
+    inactiveColorElems[i].addEventListener("mousemove", (event) => {
+        inactiveColorElems[i].nextElementSibling.innerHTML = inactiveColorElems[i].value;
+    });
+}
+
 
 function getRGBAA(RGBAAinput) {
     let RGBAAvalues = {
