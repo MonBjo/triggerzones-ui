@@ -33,7 +33,7 @@ a UI for the Triggerzone resource to FiveM
 ### `getRGBAA(RGBAAinput)`
 
 Input: 
-- `RGBAAinput`, the element which holds five input**s** with number values.
+- `RGBAAinput`, the element which holds five inputs with number values between 0 and 255.
 
 Output:
 ```js
@@ -61,7 +61,7 @@ let inactiveColor = getRGBAA(inactiveColorElems);
 ### `getSingleValue(element)`
 
 Input:   
-- `element`, an `<input>` with type `text` or `number`.
+- `element`, an input with type `text` or `number`.
 
 Output:
 - a `string` or `number` depending on the input.
@@ -169,7 +169,7 @@ Input:
 - none
 
 Output
-- `index` of the row.
+- `number`, index of the row.
 
 Use this function to get the current selected row in the table. They are already used inside two event listeners in the file `scriptRightSide.js` to view or delete the point.
 
