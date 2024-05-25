@@ -41,10 +41,9 @@ saveButtonElem.addEventListener("click", (event) => {
     console.log("=== START OF SAVED DATA ===");
     console.log("active color", getRGBAA(activeColorElems));
     console.log("inactive color", getRGBAA(inactiveColorElems));
-    console.log("altitude", getSingleValue(altitudeElem), typeof getSingleValue(altitudeElem));
-    console.log("height", getSingleValue(heightElem), typeof getSingleValue(heightElem));
-    console.log("zoneName", getSingleValue(zoneNameElem), typeof getSingleValue(zoneNameElem));
-    console.log("points", tableElem);
+    console.log("altitude", getSingleValue(altitudeElem));
+    console.log("height", getSingleValue(heightElem));
+    console.log("zoneName", getSingleValue(zoneNameElem));
     console.log("=== END OF SAVED DATA ===");
 
     if(zoneNameElem.value.length == 0 || !zoneNameElem.value) {
@@ -55,8 +54,14 @@ saveButtonElem.addEventListener("click", (event) => {
 });
 
 function getSingleValue(element) {
-    
-    return element.value;
+    if(!isNaN(element.value)) {
+        // It's a number
+        return +element.value;
+    } else if(typeof element.value == "string") {
+        return element.value;
+    } else {
+        console.log("wait what? I think it's something weird with this value inside [getSingleValue] function");
+    }
 }
 
 function toggleBackroundColor(elem, checkedColor, uncheckedColor) {
