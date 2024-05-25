@@ -9,7 +9,7 @@ let tableRowElems = [];
 // Placeholder data
 let tempTableData = [];
 for(let i = 1; i <= 5; i++) {
-    tempTableData.push(["xXx", "yYy"]);
+    tempTableData.push(["xxxx", "yyyy"]);
 }
 populateTable(tableElem, tempTableData);
 
@@ -30,10 +30,12 @@ viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
     let activeRow = getActiveRow();
 });
+
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
     let activeRow = getActiveRow();
 });
+
 toggleTableButtonElem.addEventListener("click", (event) => {
     console.log("toggleTableButton"); 
     if(!rightSectionElem.classList.contains("hideRightSection")) {
@@ -45,7 +47,6 @@ toggleTableButtonElem.addEventListener("click", (event) => {
         rightSectionElem.classList.remove("hideRightSection");
     
     }
-    
 });
 
 
@@ -57,6 +58,7 @@ function getActiveRow() {
         showModalMessage(alertElem, alertMessageElem, "You need to select a row before proceeding with that action.")
     }
 }
+
         
 function populateTable(table, data) {
     clearTable(table);
