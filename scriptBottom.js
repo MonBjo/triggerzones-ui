@@ -17,6 +17,7 @@ altitudeElem.addEventListener("change", (event) => {
 
 heightElem.addEventListener("change", (event) => {
     console.log(heightElem.value);
+
 });
 
 cancelButtonElem.addEventListener("click", (event) => {
@@ -32,13 +33,6 @@ drawButtonElem.addEventListener("change", (event) => {
 eventButtonElem.addEventListener("change", (event) => {
     toggleBackroundColor(eventButtonElem, "green", "blue");
 
-    // DEBUG
-    let tempTableData2 = [];
-    let random = Math.floor(Math.random() * 10);
-    for(let i = 1; i <= 1001; i++) {
-        tempTableData2.push(["aaaaaaa", random*100000]);
-    }
-    populateTable(tableElem, tempTableData2);
 });
 
 saveButtonElem.addEventListener("click", (event) => {
@@ -47,9 +41,9 @@ saveButtonElem.addEventListener("click", (event) => {
     console.log("=== START OF SAVED DATA ===");
     console.log("active color", getRGBAA(activeColorElems));
     console.log("inactive color", getRGBAA(inactiveColorElems));
-    console.log("altitude", altitudeElem.value);
-    console.log("height", heightElem.value);
-    console.log("zoneName", zoneNameElem.value);
+    console.log("altitude", getSingleValue(altitudeElem), typeof getSingleValue(altitudeElem));
+    console.log("height", getSingleValue(heightElem), typeof getSingleValue(heightElem));
+    console.log("zoneName", getSingleValue(zoneNameElem), typeof getSingleValue(zoneNameElem));
     console.log("points", tableElem);
     console.log("=== END OF SAVED DATA ===");
 
@@ -60,6 +54,10 @@ saveButtonElem.addEventListener("click", (event) => {
     }
 });
 
+function getSingleValue(element) {
+    
+    return element.value;
+}
 
 function toggleBackroundColor(elem, checkedColor, uncheckedColor) {
     console.log(elem.id);
