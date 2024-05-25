@@ -30,7 +30,7 @@
     border-bottom: 1px solid var(--white);
 }
 .mainInput > input[type="number"] { 
-    width: 65px;
+    width: 5rem;
     text-align: center;
 }
 .mainInput > input[type="number"] { 
