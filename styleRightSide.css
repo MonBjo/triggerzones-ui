@@ -17,7 +17,7 @@
     height: auto;
     min-width: 10rem;
     width: 100%;
-    max-width: 20rem;
+    /* max-width: 20rem; */
 
     background-color: var(--black);
     border-radius: var(--border-radius) 0 0 var(--border-radius);
@@ -45,12 +45,7 @@
     text-align: right;
     padding: 0.4rem 0.3rem;
 }
-.table tr > :first-child {
-    width: 25%;
-}
-/* .table tr > :nth-child(1) {
-    width:15%;
-} */
+
 .table tr > :last-child {
     padding-right: 2rem;
 }

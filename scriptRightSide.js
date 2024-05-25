@@ -8,8 +8,8 @@ let tableRowElems = [];
 
 // Placeholder data
 let tempTableData = [];
-for(let i = 1; i <= 5; i++) {
-    tempTableData.push(["xxxx", "yyyy"]);
+for(let i = 1; i <= 50; i++) {
+    tempTableData.push([i, "xxx.xxxx", "yyy.yyyy"]);
 }
 populateTable(tableElem, tempTableData);
 
@@ -69,9 +69,9 @@ function populateTable(table, data) {
         let cell1 = newRow.insertCell(1);    
         let cell2 = newRow.insertCell(2);
         
-        cell0.innerHTML = i;
-        cell1.innerHTML = data[i][0];
-        cell2.innerHTML = data[i][1];
+        cell0.innerHTML = data[i][0];
+        cell1.innerHTML = data[i][1];
+        cell2.innerHTML = data[i][2];
 
         newRow.className = "tableRow";
         tableRowElems.push(newRow);
