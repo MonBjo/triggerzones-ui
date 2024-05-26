@@ -2,12 +2,12 @@
 
 a UI for the Triggerzone resource to FiveM
 
-## Specification
+## **Specification**
 
  -  List of all points with xy-coordinates and index. 
     -  Button to remove a point after it has been selected. 
     -  Button to view a point after it has been selected
--  Input data: 
+-  Input / Export data: 
     -  Color, Two groups made with sliders and realtime preview of the color in game.
         -  Active zone of 5 values: R, G, B, A(lines) and A(walls). 
         -  Inactive zone of 5 values: R, G, B, A(lines) and A(walls).
@@ -22,7 +22,7 @@ a UI for the Triggerzone resource to FiveM
 
 ![image of resource](/screenshot.png)
 
-## How to use
+## **How to use**
 
 > **! Note !**  
 > In the examples below, I have included the getting the elements to make it clearer in case you want to create and use different elements.   
@@ -30,92 +30,284 @@ a UI for the Triggerzone resource to FiveM
 
 ---
 
-### `getRGBAA(RGBAAinput)`
+## Functions to get values
+
+### `getActiveRGBAAValue(RGBAAinput)`
 
 Input: 
-- `RGBAAinput`, the element which holds five inputs with number values between 0 and 255.
+- none
 
 Output:
 ```js
 {
-    color: [],
+    color: [0, 0, 0],
     lines: 0,
     walls: 0
 }
 ```
-RGBAA is *not* a typo, because this is practically two colors in one with different alpha values; one for the walls and one for the lines on the zones. There are currently two color elements to get input from:
-- `activeColorElem`, for the active zone that's being worked on.
-- `inactiveColorElem`, for all other zones.
+RGBAA is *not* a typo, because this is practically two colors in one with different alpha values; one for the walls and one for the lines on the zones.
 
 Example: 
 ```js
-let activeColorElems = document.getElementsByClassName("activeZoneColor");
-let inactiveColorElems = document.getElementsByClassName("inactiveZoneColor");
-
-let activeColor = getRGBAA(activeColorElems);
-let inactiveColor = getRGBAA(inactiveColorElems);
+let activeColor = getActiveRGBAAValue();
 ```
 
 ---
 
-### `getSingleValue(element)`
+### `getInactiveRGBAAValue(RGBAAinput)`
+
+Input: 
+- none
+
+Output:
+```js
+{
+    color: [0, 0, 0],
+    lines: 0,
+    walls: 0
+}
+```
+RGBAA is *not* a typo, because this is practically two colors in one with different alpha values; one for the walls and one for the lines on the zones.
+
+Example: 
+```js
+let inactiveColor = getInactiveRGBAAValue();
+```
+
+---
+
+### `getZoneNameValue()`
 
 Input:   
-- `element`, an input with type `text` or `number`.
-
-Output:
-- a `string` or `number` depending on the input.
-
-Used to get a single value from an input element. Nothing more. Nothing less.
-
-Example:
-```js
-let saveButtonElem = document.getElementById("save");
-
-saveButtonElem.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    var altitude = getSingleValue(altitudeElem);
-    var height = getSingleValue(heightElem);
-    var zoneName = getSingleValue(zoneNameElem);
-});
-```
-
----
-
-### `isDrawingOn()`
-
-Input:    
 - none
 
 Output:
-- `boolean`
+- `string`, the zoneName value.
 
-Use this to get a boolian telling if "Drawing" is checked or not.
+Get the value of the zoneName input. Might be an `<empty string>`.
 
 Example:
 ```js
-let drawing = isDrawingOn();
+var zoneName = getZoneNameValue();
 ```
 
 ---
 
-### `isEventOn()`
+### `getAltitudeValue()`
 
-Input:    
+Input:   
 - none
 
 Output:
-- `boolian`
+- `number`, the altitude value with 2 decimals.
 
-Use this to get a boolian telling if "Event" is checked or not.
+Get the value of the altitude input.
 
 Example:
 ```js
-let event = isEventOn();
+var altitude = getAltitudeValue();
 ```
 
 ---
+
+### `getHeightValue()`
+
+Input:   
+- none
+
+Output:
+- `number`, the height value with 2 decimals.
+
+Get the value of the height input.
+
+Example:
+```js
+var height = getHeightValue();
+```
+
+---
+
+### `getEventValue()`
+
+Input:   
+- none
+
+Output:
+- `boolean`, the event value.
+
+Get the value of the event input.
+
+Example:
+```js
+var event = getEventValue();
+```
+
+---
+
+### `getDrawingValue()`
+
+Input:   
+- none
+
+Output:
+- `boolean`, the drawing value.
+
+Get the value of the drawing input.
+
+Example:
+```js
+var drawing = getDrawingValue();
+```
+
+---
+
+## Functions to set values
+
+### `setActiveRGBAAValue(newRGBAA)`
+
+Input: 
+- `{ color: [0, 0, 0], lines: 0, walls: 0 }`, first an RGB value, then alphas.
+
+Output:
+- none
+
+RGBAA is *not* a typo, because this is practically two colors in one with different alpha values; one for the walls and one for the lines on the zones.
+
+Example: 
+```js
+let newColor = {
+    color: [10, 20, 30],
+    lines: 40,
+    walls: 50
+}
+
+setActiveRGBAAValue(newColor);
+```
+
+---
+
+#### `setInactiveRGBAAValue(newRGBAA)`
+
+Input: 
+- `{ color: [0, 0, 0], lines: 0, walls: 0 }`, first an RGB value, then alphas.
+
+
+Output:
+- none 
+
+RGBAA is *not* a typo, because this is practically two colors in one with different alpha values; one for the walls and one for the lines on the zones.
+
+Example: 
+```js
+let newColor = {
+    color: [110, 120, 130],
+    lines: 140,
+    walls: 150
+}
+
+setInactiveRGBAAValue(newColor);
+```
+
+---
+
+
+#### `setZoneNameValue(newZoneName)`
+
+Input:   
+- `string`, the zoneName value.
+
+Output:
+- none
+
+Set the value of the zoneName input.
+
+Example:
+```js
+let zoneName = "Coffe Cat Cafe";
+
+setZoneNameValue(zoneName);
+```
+
+---
+
+#### `setAltitudeValue(value)`
+
+Input:   
+- `number`, the altitude value with 2 decimals.
+
+Output:
+- none
+
+Set the value of the altitude input.
+
+Example:
+```js
+let altitude = 73.20;
+
+setAltitudeValue(altitude);
+```
+
+---
+
+#### `setHeightValue(newHeight)`
+
+Input:   
+- `number`, the height value with 2 decimals.
+
+Output:
+- none
+
+Set the value of the height input.
+
+Example:
+```js
+let height = 3.14;
+
+setHeightValue(height);
+```
+
+---
+
+#### `setEventValue(newEvent)`
+
+Input:   
+- `boolean`, the event value.
+
+Output:
+- none
+
+set the value of the event input.
+
+Example:
+```js
+let event = true;
+
+setEventValue(event);
+```
+
+---
+
+#### `setDrawingValue(newDrawing)`
+
+Input:   
+- `boolean`, the drawing value.
+
+Output:
+- none
+
+False the value of the drawing input.
+
+Example:
+```js
+let drawing = false;
+
+setDrawingValue(drawing);
+```
+
+---
+
+
+## Other functions
 
 ### `populateTable(table, data)`
 
