@@ -1,6 +1,7 @@
 # triggerzones-ui
 
-a UI for the Triggerzone resource to FiveM
+A UI for the FiveM [Triggerzone resource](https://github.com/DemmyDemon/triggerzone) made by [DemmyDemon](https://github.com/DemmyDemon). 
+> To be clear: This is **only the UI**. It won't work on it's own.
 
 ## **Specification**
 
@@ -25,12 +26,15 @@ a UI for the Triggerzone resource to FiveM
 ## **How to use**
 
 > **! Note !**  
-> In the examples below, I have included the getting the elements to make it clearer in case you want to create and use different elements.   
+> In some of the examples below, I have included the getting the elements to make it clearer in case you want to create and/or use different elements.   
 > So if you are using the standard/included elements, you **do not** need to get them.
 
 ---
+---
 
 ## Functions to get values
+
+---
 
 ### `getActiveRGBAAValue(RGBAAinput)`
 
@@ -160,8 +164,11 @@ var drawing = getDrawingValue();
 ```
 
 ---
+---
 
 ## Functions to set values
+
+---
 
 ### `setActiveRGBAAValue(newRGBAA)`
 
@@ -305,9 +312,11 @@ setDrawingValue(drawing);
 ```
 
 ---
-
+---
 
 ## Other functions
+
+---
 
 ### `populateTable(table, data)`
 
@@ -402,3 +411,22 @@ let alertMessageElem = document.getElementById("alertMessage");
 
 showModalMessage(alertElem, alertMessageElem, "this message will show in the modal.")
 ```
+
+---
+
+### `showUI(bool)`
+
+Input:
+- bool, true or false, yes or no, yay or nay.
+
+Output:
+- none
+
+A function to show or hide the UI.
+
+Example: 
+```js
+showUI(true);
+```
+
+---
