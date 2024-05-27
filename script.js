@@ -40,7 +40,7 @@ function showUI(bool) {
         if(bool == false) {
             sectionElems[i].style.display = "none";
         } else if(bool == true) {
-            sectionElems[i].style.display = "auto";
+            sectionElems[i].style.display = "flex";
         } else {
             console.log("the boolean isn't a boolean in the [showUI] function. What.");
         }

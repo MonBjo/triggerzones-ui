@@ -8,6 +8,7 @@ for(let i = 0; i < activeColorElems.length; i++) {
     activeColorElems[i].addEventListener("mousedown", (event) => {
         activeColorElems[i].addEventListener("mousemove", (event) => {
             activeColorElems[i].nextElementSibling.innerHTML = activeColorElems[i].value;
+            glueChangeActiveColor(getActiveRGBAAValue())
         });
     });
 }
@@ -18,6 +19,7 @@ for(let i = 0; i < inactiveColorElems.length; i++) {
     inactiveColorElems[i].addEventListener("mousedown", (event) => {
         inactiveColorElems[i].addEventListener("mousemove", (event) => {
             inactiveColorElems[i].nextElementSibling.innerHTML = inactiveColorElems[i].value;
+            glueChangeInactiveColor(getInactiveRGBAAValue())
         });
     });
 }
