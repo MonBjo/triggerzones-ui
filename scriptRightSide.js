@@ -29,11 +29,13 @@ function createEventListeners(arrayOfElems, eventTrigger, className) {
 viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
     let activeRowIndex = getIndexOfActiveRow();
+    glueButtonView(activeRowIndex);
 });
 
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
     let activeRowIndex = getIndexOfActiveRow();
+    glueButtonDelete(activeRowIndex);
 });
 
 toggleTableButtonElem.addEventListener("click", (event) => {

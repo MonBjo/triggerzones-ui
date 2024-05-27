@@ -9,56 +9,32 @@ let drawButtonElem = document.getElementById("drawButton");
 let cancelButtonElem = document.getElementById("cancel");
 let saveButtonElem = document.getElementById("save");
 
-
 altitudeElem.addEventListener("change", (event) => {
-    console.log(altitudeElem.value);
+    glueChangeAltitude(getAltitudeValue())
 });
 
 heightElem.addEventListener("change", (event) => {
-    console.log(heightElem.value);
+    glueChangeHeight(getHeightValue())
 });
 
 drawButtonElem.addEventListener("change", (event) => {
     toggleBackroundColor(drawButtonElem, "green", "blue");
+    glueChangeDraw(getDrawingValue())
 });
 
 eventButtonElem.addEventListener("change", (event) => {
     toggleBackroundColor(eventButtonElem, "green", "blue");
+    glueChangeEvent(getEventValue())
 });
 
 cancelButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
-
-    // FiveM specific
-    fetch(`https://${GetParentResourceName()}/cancel`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: JSON.stringify({
-            name: 'not-important'
-        })
-    }).then(resp => resp.json()).then(resp => console.log(resp));
+    glueButtonCancel();
 });
 
 saveButtonElem.addEventListener("click", (event) => {
     event.preventDefault();
-
-    if(zoneNameElem.value.length == 0 || !zoneNameElem.value) {
-        showModalMessage(alertElem, alertMessageElem, "Please write a zone name.");
-    } else {
-
-        // FiveM specific
-        fetch(`https://${GetParentResourceName()}/save`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json; charset=UTF-8',
-            },
-            body: JSON.stringify({
-                label: labelGoesHereOrWhatever
-            })
-        }).then(resp => resp.json()).then(resp => console.log(resp));
-    }
+    glueButtonSave();
 });
 
 function getZoneNameValue() {
