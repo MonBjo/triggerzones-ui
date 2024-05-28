@@ -9,7 +9,7 @@ showUI(false);
 
 window.addEventListener("keyup", (event) => {
     var activeElement = document.activeElement;
-    var inputs = ['input', 'textarea'];
+    var inputs = ['input', 'textarea', 'button'];
 
     if(event.key == " ") {
             if (activeElement && inputs.indexOf(activeElement.tagName.toLowerCase()) == -1) {
