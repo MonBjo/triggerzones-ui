@@ -23,7 +23,6 @@ altitudeElem.addEventListener("change", (event) => {
 });
 
 heightElem.addEventListener("change", (event) => {
-    this.value = this.value.replace(/[^0-9]/g, '');
     glueChangeHeight(getHeightValue())
 });
 
