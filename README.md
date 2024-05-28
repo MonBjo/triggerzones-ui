@@ -391,25 +391,32 @@ deleteButtonElem.addEventListener("click", (event) => {
 ```
 
 ---
-
-### `showModalMessage(modalElem, messageElem, message)`
+### `showModalMessage(message, buttons)`
 
 Input: 
-- `modalElem`, the modal element itself.
-- `messageElem`, the element containing the message.
-- `message`, the message.
+
+- `message`, the message, works for plain text, tables and whatever just remember to add the HTML for it.
+- `button`, an array of button/s data in a Map of 3 sets:
+    - `color`, color of the button, choose between "Green", "Red", "Blue"
+    - `text`, the text that the button will display.
+    - `function`, what will happend when the button is clicked.
 
 Output:  
 - none
 
-The only modal (for now) is `alertElem` and it contains the `alertMessageElem`. Also, this function is used in some other functions automagicly. 
+This is the one and only modal and it is fairly customizable as you add the HTML you want and as many buttons as you need. Note! When choosing a color for the button, it *has* to be capitalized.
 
 Example:
 ```js
 let alertElem = document.getElementById("alert");
-let alertMessageElem = document.getElementById("alertMessage");
 
-showModalMessage(alertElem, alertMessageElem, "this message will show in the modal.")
+let button = [ button1 = new Map([
+    ["color", "Green"],
+    ["text", "Okay"],
+    ["function", () => { hideElem(alertElem) }]
+]) ];
+
+showModalMessage("<p>You need to select a row before proceeding with that action.</p>", button);
 ```
 
 ---
