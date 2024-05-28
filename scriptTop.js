@@ -1,4 +1,4 @@
-let colorFormElem = document.getElementById("colorForm");
+let colorSectionElem = document.getElementById("colorSection");
 let activeColorElems = document.getElementsByClassName("activeZoneColor");
 let inactiveColorElems = document.getElementsByClassName("inactiveZoneColor");
 

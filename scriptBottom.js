@@ -1,4 +1,4 @@
-let mainFormElem = document.getElementById("mainForm");
+let mainSectionElem = document.getElementById("mainSection");
 
 let zoneNameElem = document.getElementById("zoneName");
 let altitudeElem = document.getElementById("altitude");
@@ -9,7 +9,7 @@ let drawButtonElem = document.getElementById("drawButton");
 let cancelButtonElem = document.getElementById("cancel");
 let saveButtonElem = document.getElementById("save");
 
-mainFormElem.addEventListener("submit", (event) => {
+mainSectionElem.addEventListener("submit", (event) => {
     event.preventDefault();
     console.log("event skipped, hopefully");
 });
@@ -23,6 +23,7 @@ altitudeElem.addEventListener("change", (event) => {
 });
 
 heightElem.addEventListener("change", (event) => {
+    this.value = this.value.replace(/[^0-9]/g, '');
     glueChangeHeight(getHeightValue())
 });
 

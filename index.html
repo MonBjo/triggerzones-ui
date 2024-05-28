@@ -42,7 +42,7 @@
         <div class="topSectonWrapper">
             <h1 class="colorSectionTitle">Colors</h1>
             
-            <form id="colorForm" class="colorForm">
+            <section id="colorSection" class="colorSection">
                 <p class="colorLabel"> </p>
                 <p class="colorLabel">R</p>
                 <p class="colorLabel">G</p>
@@ -94,7 +94,7 @@
                     <p>128</p>
                 </section>
                 
-            </form>
+            </section>
         </div>
     </section>
 
@@ -102,7 +102,7 @@
     <section id="bottomSection">
         <div class="bottomSectionWrapper">
             
-            <form id="mainForm" class="mainForm">
+            <section id="mainSection" class="mainSection">
                 <section class="mainInputs">
                     <section class="mainInput">
                         <label for="zoneName">Zone name:</label>
@@ -136,17 +136,20 @@
                     <button id="cancel" class="buttonRed button">Cancel</button>
                     <button id="save" class="buttonGreen button">Save</button>
                 </section>
-            </form>
+            </section>
         </div>
     </section>
 
-
-    <section id="alert" class="hidden">
+    <section id="alert" class="alertBackground hidden">
         <div class="alertWrapper">
-            <div id="alertMessageWrapper">
+            <div id="alertMessage">
                 <p>Oopsie Daisies!</p>
+                <p>It seems the gremlins in the system have had a little party and something went slightly askew.</p>
+                <p>Fear not! Our tech wizards are already on a quest to set things right. Please try again in a jiffy, or perhaps after a cup of tea.</p>
+                <p>✨ Error Code: Mischief Managed ✨</p>
             </div>
-            <div id="alertButtonWrapper" class="alertButtonWrapper"></div>
+
+            <button id="alertButton" class="buttonGreen button">Close</button>
         </div>
     </section>
 
