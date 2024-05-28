@@ -55,18 +55,16 @@ function actOnData(data){
             hideElem(alertElem);
             break;
         case "message":
-            /*
             showModalMessage(data.message, [
                 {
                     color: "Green",
                     text: "OK",
-                    function: () => {
+                    action: () => {
                         hideElem(alertElem);
-                        glueInvokeCallback('unfocus', {})
+                        glueInvokeCallback('unfocus', {});
                     }
                 }
             ]);
-            */
             break;
         case "blocker":
             showModalMessage(data.message, []);
