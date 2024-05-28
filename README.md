@@ -406,7 +406,7 @@ Input:
 Output:  
 - none
 
-This is the one and only modal and it is fairly customizable as you add the HTML you want and as many buttons as you need. Even if you want only one or zero buttons, you still have to include an empty array. Note! When choosing a color for the button, it *has* to be capitalized.
+This is the one and only modal and it is fairly customizable as you add the HTML you want and as many buttons as you need. Even if you want only one or zero buttons, you still have to include an empty array. Note! When choosing a color for the button, it *has* to be capitalized. To prevent the button/s to keeping focus after click add `event.target.blur();` to the function, as seen below.
 
 Example:
 ```js
@@ -415,7 +415,8 @@ let alertElem = document.getElementById("alert");
 let button = [{
     color: "Green",
     text: "Will do",
-    action: () => {
+    action: (event) => {
+        event.target.blur();
         hideElem(alertElem);
     }
 }];

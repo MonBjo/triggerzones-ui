@@ -59,8 +59,9 @@ function actOnData(data){
                 {
                     color: "Green",
                     text: "OK",
-                    action: () => {
+                    action: (event) => {
                         hideElem(alertElem);
+                        event.target.blur();
                         glueInvokeCallback('unfocus', {});
                     }
                 }

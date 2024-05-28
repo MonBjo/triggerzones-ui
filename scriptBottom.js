@@ -22,21 +22,23 @@ heightElem.addEventListener("change", (event) => {
 
 drawButtonElem.addEventListener("change", (event) => {
     toggleBackroundColor(drawButtonElem, "green", "blue");
+    event.target.blur();
     glueChangeDraw(getDrawingValue())
 });
 
 eventButtonElem.addEventListener("change", (event) => {
     toggleBackroundColor(eventButtonElem, "green", "blue");
+    event.target.blur();
     glueChangeEvent(getEventValue())
 });
 
 cancelButtonElem.addEventListener("click", (event) => {
-    event.preventDefault();
+    event.target.blur();
     glueButtonCancel();
 });
 
 saveButtonElem.addEventListener("click", (event) => {
-    event.preventDefault();
+    event.target.blur();
     glueButtonSave();
 });
 

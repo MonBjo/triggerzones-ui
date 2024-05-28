@@ -5,7 +5,7 @@ let alertMessageWrapperElem = document.getElementById("alertMessageWrapper");
 let alertButtonWrapperElem = document.getElementById("alertButtonWrapper");
 
 
-showUI(false);
+showUI(true);
 
 window.addEventListener("keyup", (event) => {
     var activeElement = document.activeElement;

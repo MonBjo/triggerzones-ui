@@ -29,12 +29,14 @@ function createEventListeners(arrayOfElems, eventTrigger, className) {
 viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
     let activeRowIndex = getIndexOfActiveRow();
+    event.target.blur();
     glueButtonView(activeRowIndex);
 });
 
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
     let activeRowIndex = getIndexOfActiveRow();
+    event.target.blur();
     glueButtonDelete(activeRowIndex);
 });
 
@@ -60,7 +62,8 @@ function getIndexOfActiveRow() {
         let button = [{
             color: "Green",
             text: "Will do",
-            action: () => {
+            action: (event) => {
+                event.target.blur();
                 hideElem(alertElem);
             }
         }];

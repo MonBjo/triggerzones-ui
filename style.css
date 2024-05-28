@@ -28,7 +28,11 @@
     background-color: var(--white);
     border-radius: 20px;
 }
-* ::-webkit-slider-runnable-track, * ::-webkit-slider-thumb {
+* ::-webkit-slider-runnable-track {
+    background-color: var(--blue);
+    height: 0.5rem;
+}
+* ::-webkit-slider-thumb {
     background-color: var(--blue);
 }
 
