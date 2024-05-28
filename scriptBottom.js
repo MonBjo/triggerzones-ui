@@ -78,7 +78,7 @@ function setEventValue(newEvent) {
 }
 function setDrawingValue(newDrawing) {
     drawButtonElem.firstElementChild.checked = newDrawing;
-    toggleBackroundColor(drawingButtonElem, "green", "blue");
+    toggleBackroundColor(drawButtonElem, "green", "blue");
 }
 
 function toggleBackroundColor(elem, checkedColor, uncheckedColor) {
