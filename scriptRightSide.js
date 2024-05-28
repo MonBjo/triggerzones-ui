@@ -57,7 +57,13 @@ function getIndexOfActiveRow() {
     if(activeRow[0]) {
         return +activeRow[0].cells[0].innerHTML;
     } else {
-        showModalMessage(alertElem, alertMessageElem, "You need to select a row before proceeding with that action.")
+        let button = [ button1 = new Map([
+            ["color", "Green"],
+            ["text", "Okay"],
+            ["function", () => { hideElem(alertElem) }]
+        ]) ];
+
+        showModalMessage("<p>You need to select a row before proceeding with that action.</p>", button);
     }
 }
         

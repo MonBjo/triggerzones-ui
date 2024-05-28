@@ -51,7 +51,7 @@ function actOnData(data){
             hideElem(alertElem);
             break;
         case "message":
-            showModalMessage(alertElem, alertMessageElem, data.message);
+            showModalMessage(data.message, buttons = []);
             break;
         case "setName":
             setZoneNameValue(data.name);
@@ -88,7 +88,7 @@ function actOnData(data){
             setInactiveRGBAAValue(data.inactiveRGBAA);
             populateTable(tableElem, data.points);
             if (data.message) {
-                showModalMessage(alertElem, alertMessageElem, data.message);
+                showModalMessage(data.message, buttons = []);
             }
             break;
         case "abort":
