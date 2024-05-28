@@ -48,9 +48,6 @@
     width: 100px;
     margin-bottom: 8px;
 }
-.colorInput > input[type="range"]::-webkit-slider-runnable-track input[type="range"]::-webkit-slider-thumb {
-    background-color: var(--blue);
-}
 .colorInput > p {
     width: 2rem;
     text-align: right;

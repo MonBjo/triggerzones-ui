@@ -28,6 +28,9 @@
     background-color: var(--white);
     border-radius: 20px;
 }
+* ::-webkit-slider-runnable-track, * ::-webkit-slider-thumb {
+    background-color: var(--blue);
+}
 
 body {
     overflow: hidden;
