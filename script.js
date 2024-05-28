@@ -14,7 +14,7 @@ window.addEventListener("keyup", (event) => {
     if(event.key == " ") {
             if (activeElement && inputs.indexOf(activeElement.tagName.toLowerCase()) == -1) {
             // events that should happen when pressing space and no input filed is active
-            
+            glueSpace();
         }
     }
 });

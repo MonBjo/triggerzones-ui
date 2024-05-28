@@ -1,5 +1,9 @@
 // FiveM Glue
 
+function glueSpace() {
+    console.log("Space where pressed, should NOT fire if input or textarea is selected.");
+}
+
 function glueInvokeCallback(endpoint, payload){
     fetch(`https://${GetParentResourceName()}/${endpoint}`, {
         method: 'POST',
