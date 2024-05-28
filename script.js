@@ -7,6 +7,17 @@ let alertButtonWrapperElem = document.getElementById("alertButtonWrapper");
 
 showUI(true);
 
+window.addEventListener("keyup", (event) => {
+    var activeElement = document.activeElement;
+    var inputs = ['input', 'textarea'];
+    
+    if(event.key == " ") {
+            if (activeElement && inputs.indexOf(activeElement.tagName.toLowerCase()) == -1) {
+            // events that should happen when pressing space and no input filed is active
+            
+        }
+    }
+});
 
 function hideElem(elem) {
     elem.className = "hidden";
