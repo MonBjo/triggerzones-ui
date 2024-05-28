@@ -154,7 +154,6 @@ table td {
     max-width: 90%;
     width: auto;
     max-height: 90%;
-    overflow: scroll;
     letter-spacing: 0.1rem;
 
     display: flex;
