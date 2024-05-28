@@ -25,6 +25,11 @@ A UI for the FiveM [Triggerzone resource](https://github.com/DemmyDemon/triggerz
 
 ## **How to use**
 
+**Quick Navigation** - *ain't nobody got time for this*   
+[Functions to get values](#getFunctions)     
+[Functions to set values](#setFunctions)     
+[Other functions](#otherFunctions)     
+
 > **! Note !**  
 > In some of the examples below, I have included the getting the elements to make it clearer in case you want to create and/or use different elements.   
 > So if you are using the standard/included elements, you **do not** need to get them.
@@ -32,9 +37,8 @@ A UI for the FiveM [Triggerzone resource](https://github.com/DemmyDemon/triggerz
 ---
 ---
 
+<a name="getFunctions"></a>
 ## Functions to get values
-
----
 
 ### `getActiveRGBAAValue(RGBAAinput)`
 
@@ -166,9 +170,8 @@ var drawing = getDrawingValue();
 ---
 ---
 
+<a name="setFunctions"></a>
 ## Functions to set values
-
----
 
 ### `setActiveRGBAAValue(newRGBAA)`
 
@@ -216,7 +219,6 @@ setInactiveRGBAAValue(newColor);
 ```
 
 ---
-
 
 #### `setZoneNameValue(newZoneName)`
 
@@ -314,9 +316,9 @@ setDrawingValue(drawing);
 ---
 ---
 
-## Other functions
+<a name="otherFunctions"></a>
 
----
+## Other functions
 
 ### `populateTable(table, data)`
 
