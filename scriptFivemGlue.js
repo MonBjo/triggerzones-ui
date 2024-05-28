@@ -1,15 +1,15 @@
 // FiveM Glue
 
-function glueSpace() {
-    console.log("Space where pressed, should NOT fire if input or textarea is selected.");
-}
-
 function glueInvokeCallback(endpoint, payload){
     fetch(`https://${GetParentResourceName()}/${endpoint}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
         body: JSON.stringify(payload)
     }).then(resp => resp.json()).then(resp => actOnData(resp));
+}
+
+function glueSpace() {
+    glueInvokeCallback('unfocus', {})
 }
 
 function glueChangeAltitude(newValue){
@@ -55,7 +55,21 @@ function actOnData(data){
             hideElem(alertElem);
             break;
         case "message":
-            showModalMessage(data.message, buttons = []);
+            /*
+            showModalMessage(data.message, [
+                {
+                    color: "Green",
+                    text: "OK",
+                    function: () => {
+                        hideElem(alertElem);
+                        glueInvokeCallback('unfocus', {})
+                    }
+                }
+            ]);
+            */
+            break;
+        case "blocker":
+            showModalMessage(data.message, []);
             break;
         case "setName":
             setZoneNameValue(data.name);
@@ -98,6 +112,7 @@ function actOnData(data){
         case "abort":
             hideElem(alertElem);
             showUI(false);
+            glueInvokeCallback('unfocus', {})
             break;
         default:
             console.log(`Unknown data type "${data.type}"`, data)
