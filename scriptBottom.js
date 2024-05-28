@@ -74,9 +74,11 @@ function setHeightValue(newHeight) {
 }
 function setEventValue(newEvent) {
     eventButtonElem.firstElementChild.checked = newEvent;
+    toggleBackroundColor(eventButtonElem, "green", "blue");
 }
 function setDrawingValue(newDrawing) {
     drawButtonElem.firstElementChild.checked = newDrawing;
+    toggleBackroundColor(drawingButtonElem, "green", "blue");
 }
 
 function toggleBackroundColor(elem, checkedColor, uncheckedColor) {
