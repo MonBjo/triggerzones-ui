@@ -1,5 +1,3 @@
-let mainSectionElem = document.getElementById("mainSection");
-
 let zoneNameElem = document.getElementById("zoneName");
 let altitudeElem = document.getElementById("altitude");
 let heightElem = document.getElementById("height");
@@ -9,10 +7,6 @@ let drawButtonElem = document.getElementById("drawButton");
 let cancelButtonElem = document.getElementById("cancel");
 let saveButtonElem = document.getElementById("save");
 
-mainSectionElem.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("event skipped, hopefully");
-});
 
 zoneNameElem.addEventListener("keyup", (event) => {
     glueChangeName(getZoneNameValue())
