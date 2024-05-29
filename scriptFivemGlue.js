@@ -42,13 +42,9 @@ function glueButtonDelete(idx){
 }
 
 function glueChangeActiveColor(newValue){
-    console.log("glueChangeActiveColor(), returns: ",  newValue.color[0],newValue.color[1],newValue.color[2],newValue.lines,newValue.walls);
-
     glueInvokeCallback('activeColor', {value:newValue})
 }
 function glueChangeInactiveColor(newValue){
-    console.log("glueChangeInactiveColor(), returns: ",  newValue.color[0],newValue.color[1],newValue.color[2],newValue.lines,newValue.walls);
-
     glueInvokeCallback('inactiveColor', {value:newValue})
 }
 
