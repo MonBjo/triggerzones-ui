@@ -7,16 +7,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     for(let i = 0; i < activeColorElems.length; i++) {
         activeColorElems[i].nextElementSibling.innerHTML = activeColorElems[i].value;
-        console.log("Setting inital value for activeColorElems: ", i, 
-        activeColorElems[i].color[0],activeColorElems[i].color[1],activeColorElems[i].color[2],activeColorElems[i].lines,activeColorElems[i].walls);
+        console.log("Setting inital value for activeColorElems: ", i, activeColorElems[i].value);
 
         activeColorElems[i].addEventListener("mousedown", (event) => {
             
             console.log("activeColorElems["+i+"], eventlistener on mousedown");
             activeColorElems[i].addEventListener("mousemove", (event) => {
                 
-                console.log("activeColorElems["+i+"], eventlistener on mousemove: ", i,
-                activeColorElems[i].color[0],activeColorElems[i].color[1],activeColorElems[i].color[2],activeColorElems[i].lines,activeColorElems[i].walls);
+                console.log("activeColorElems["+i+"], eventlistener on mousemove: ", i, activeColorElems[i].value);
                 
                 activeColorElems[i].nextElementSibling.innerHTML = activeColorElems[i].value;
                 glueChangeActiveColor(getActiveRGBAAValue())
@@ -26,16 +24,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     for(let i = 0; i < inactiveColorElems.length; i++) {
         inactiveColorElems[i].nextElementSibling.innerHTML = inactiveColorElems[i].value;
-        console.log("Setting inital value for inactiveColorElems: ", i,
-        inactiveColorElems[i].color[0],inactiveColorElems[i].color[1],inactiveColorElems[i].color[2],inactiveColorElems[i].lines,inactiveColorElems[i].walls);
+        console.log("Setting inital value for inactiveColorElems: ", i, inactiveColorElems[i].value);
 
         inactiveColorElems[i].addEventListener("mousedown", (event) => {
             
             console.log("inactiveColorElems["+i+"], eventlistener on mousedown");
             inactiveColorElems[i].addEventListener("mousemove", (event) => {
                 
-                console.log("inactiveColorElems["+i+"], eventlistener on mousemove: ", i,
-                inactiveColorElems[i].color[0],inactiveColorElems[i].color[1],inactiveColorElems[i].color[2],inactiveColorElems[i].lines,inactiveColorElems[i].walls);
+                console.log("inactiveColorElems["+i+"], eventlistener on mousemove: ", i, inactiveColorElems[i].value);
 
                 inactiveColorElems[i].nextElementSibling.innerHTML = inactiveColorElems[i].value;
                 glueChangeInactiveColor(getInactiveRGBAAValue())
