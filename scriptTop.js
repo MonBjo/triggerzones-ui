@@ -60,7 +60,7 @@ function getActiveRGBAAValue() {
             console.log("Something odd is happening in the [getActiveRGBAAValue] function, the index is: ", i);
         }
     }
-    console.log("getActiveRGBAAValue(), returns: ",  newRGBAA.color[0],newRGBAA.color[1],newRGBAA.color[2],newRGBAA.lines,newRGBAA.walls);
+    console.log("getActiveRGBAAValue(), returns: ",  RGBAAvalues.color[0],RGBAAvalues.color[1],RGBAAvalues.color[2],RGBAAvalues.lines,RGBAAvalues.walls);
     return RGBAAvalues;
 }
 function getInactiveRGBAAValue() {
@@ -82,7 +82,7 @@ function getInactiveRGBAAValue() {
             console.log("Something odd is happening in the [getInactiveRGBAAValue] function, the index is: ", i);
         }
     }
-    console.log("getInactiveRGBAAValue(), returns: ",  newRGBAA.color[0],newRGBAA.color[1],newRGBAA.color[2],newRGBAA.lines,newRGBAA.walls);
+    console.log("getInactiveRGBAAValue(), returns: ",  RGBAAvalues.color[0],RGBAAvalues.color[1],RGBAAvalues.color[2],RGBAAvalues.lines,RGBAAvalues.walls);
     return RGBAAvalues;
 }
 
