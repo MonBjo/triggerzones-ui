@@ -42,9 +42,13 @@ function glueButtonDelete(idx){
 }
 
 function glueChangeActiveColor(newValue){
+    console.log("glueChangeActiveColor(), returns: ",  newValue.color[0],newValue.color[1],newValue.color[2],newValue.lines,newValue.walls);
+
     glueInvokeCallback('activeColor', {value:newValue})
 }
 function glueChangeInactiveColor(newValue){
+    console.log("glueChangeInactiveColor(), returns: ",  newValue.color[0],newValue.color[1],newValue.color[2],newValue.lines,newValue.walls);
+
     glueInvokeCallback('inactiveColor', {value:newValue})
 }
 
@@ -89,9 +93,11 @@ function actOnData(data){
             populateTable(tableElem, data.points);
             break;
         case "setActiveRGBAA":
+            console.log("actOnData(), setActiveRGBAA, returns: ",  data.activeRGBAA.color[0],data.activeRGBAA.color[1],data.activeRGBAA.color[2],data.activeRGBAA.lines,data.activeRGBAA.walls);
             setActiveRGBAAValue(data.activeRGBAA);
             break;
         case "setInactiveRGBAA":
+            console.log("actOnData(), setInactiveRGBAA, returns: ",  data.inactiveRGBAA.color[0],data.inactiveRGBAA.color[1],data.inactiveRGBAA.color[2],data.inactiveRGBAA.lines,data.inactiveRGBAA.walls);
             setInactiveRGBAAValue(data.inactiveRGBAA);
             break;
         case "loaded":
