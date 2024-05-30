@@ -5,8 +5,19 @@ let alertMessageWrapperElem = document.getElementById("alertMessageWrapper");
 let alertButtonWrapperElem = document.getElementById("alertButtonWrapper");
 
 
-showUI(true);
+showUI(false);
 
+window.addEventListener("keyup", (event) => {
+    var activeElement = document.activeElement;
+    var inputs = ['input', 'textarea', 'button'];
+
+    if(event.key == " ") {
+            if (activeElement && inputs.indexOf(activeElement.tagName.toLowerCase()) == -1) {
+            // events that should happen when pressing space and no input filed is active
+            glueSpace();
+        }
+    }
+});
 
 function hideElem(elem) {
     elem.className = "hidden";
@@ -31,11 +42,11 @@ function showModalMessage(message, buttons) {
     alertButtonWrapperElem.innerHTML = "";
     
     for(let i = 0; i < buttons.length; i++) {
+        console.log("buttons", buttons);
         let newButton = document.createElement("button");
-        
-        newButton.classList.add("button", "button"+buttons[i].get("color"));
-        newButton.textContent = buttons[i].get("text");
-        newButton.onclick = buttons[i].get("function");
+        newButton.classList.add("button", "button"+buttons[i].color);
+        newButton.textContent = buttons[i].text;
+        newButton.onclick = buttons[i].action;
         
         alertButtonWrapperElem.append(newButton);
     }
@@ -46,7 +57,7 @@ function showModalMessage(message, buttons) {
 
 function showUI(bool) {
     for(let i = 0; i < sectionElems.length; i++) {
-        console.log(sectionElems[i]);
+        // console.log(sectionElems[i]);
         if(bool == true || sectionElems[i].id == "alert") {
             sectionElems[i].style.display = "flex";
         } else if(bool == false) {

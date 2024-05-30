@@ -8,6 +8,10 @@ function glueInvokeCallback(endpoint, payload){
     }).then(resp => resp.json()).then(resp => actOnData(resp));
 }
 
+function glueSpace() {
+    glueInvokeCallback('unfocus', {})
+}
+
 function glueChangeAltitude(newValue){
     glueInvokeCallback('altitude', {value:newValue})
 }
@@ -51,7 +55,20 @@ function actOnData(data){
             hideElem(alertElem);
             break;
         case "message":
-            showModalMessage(data.message, buttons = []);
+            showModalMessage(data.message, [
+                {
+                    color: "Green",
+                    text: "OK",
+                    action: (event) => {
+                        hideElem(alertElem);
+                        event.target.blur();
+                        glueInvokeCallback('unfocus', {});
+                    }
+                }
+            ]);
+            break;
+        case "blocker":
+            showModalMessage(data.message, []);
             break;
         case "setName":
             setZoneNameValue(data.name);
@@ -72,9 +89,11 @@ function actOnData(data){
             populateTable(tableElem, data.points);
             break;
         case "setActiveRGBAA":
+            console.log("actOnData(), setActiveRGBAA, returns: ",  data.activeRGBAA.color[0],data.activeRGBAA.color[1],data.activeRGBAA.color[2],data.activeRGBAA.lines,data.activeRGBAA.walls);
             setActiveRGBAAValue(data.activeRGBAA);
             break;
         case "setInactiveRGBAA":
+            console.log("actOnData(), setInactiveRGBAA, returns: ",  data.inactiveRGBAA.color[0],data.inactiveRGBAA.color[1],data.inactiveRGBAA.color[2],data.inactiveRGBAA.lines,data.inactiveRGBAA.walls);
             setInactiveRGBAAValue(data.inactiveRGBAA);
             break;
         case "loaded":
@@ -94,6 +113,7 @@ function actOnData(data){
         case "abort":
             hideElem(alertElem);
             showUI(false);
+            glueInvokeCallback('unfocus', {})
             break;
         default:
             console.log(`Unknown data type "${data.type}"`, data)

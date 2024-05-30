@@ -29,12 +29,14 @@ function createEventListeners(arrayOfElems, eventTrigger, className) {
 viewButtonElem.addEventListener("click", (event) => {
     console.log("viewButton");
     let activeRowIndex = getIndexOfActiveRow();
+    event.target.blur();
     glueButtonView(activeRowIndex);
 });
 
 deleteButtonElem.addEventListener("click", (event) => {
     console.log("deleteButton");
     let activeRowIndex = getIndexOfActiveRow();
+    event.target.blur();
     glueButtonDelete(activeRowIndex);
 });
 
@@ -57,11 +59,14 @@ function getIndexOfActiveRow() {
     if(activeRow[0]) {
         return +activeRow[0].cells[0].innerHTML;
     } else {
-        let button = [ button1 = new Map([
-            ["color", "Green"],
-            ["text", "Okay"],
-            ["function", () => { hideElem(alertElem) }]
-        ]) ];
+        let button = [{
+            color: "Green",
+            text: "Will do",
+            action: (event) => {
+                event.target.blur();
+                hideElem(alertElem);
+            }
+        }];
 
         showModalMessage("<p>You need to select a row before proceeding with that action.</p>", button);
     }
